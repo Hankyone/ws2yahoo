@@ -1,4 +1,4 @@
-# ws2yahoo
+<p align="center"><img src="docs/banner.svg" alt="ws2yahoo" width="720"></p>
 
 Mirror your Wealthsimple trades into a Yahoo Finance portfolio, so Yahoo
 always shows what you actually own.
