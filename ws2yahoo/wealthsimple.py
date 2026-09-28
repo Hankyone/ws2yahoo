@@ -243,5 +243,11 @@ def get_client() -> WealthsimpleClient:
     """Client from the saved token, re-reading it from the browser when expired."""
     token = config.load("wealthsimple.json", {})
     if token.get("expires_at", 0) - time.time() > 60:
-        return WealthsimpleClient(token["access_token"], token["identity_id"])
+        client = WealthsimpleClient(token["access_token"], token["identity_id"])
+        try:
+            client.accounts()  # cached for later use; confirms the token wasn't revoked early
+            return client
+        except WealthsimpleError as e:
+            if e.status != 401:
+                raise
     return login_from_browser()
