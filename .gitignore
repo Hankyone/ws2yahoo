@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+.DS_Store
+
+# personal notes for agents
+AGENTS.local.md
+CLAUDE.local.md
